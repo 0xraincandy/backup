@@ -32,9 +32,7 @@ for config in "${CONFIGS[@]}"; do
     ln -s "$src" "$dest"
 done
 
-# Enable SDDM
-echo "[*] Enabling SDDM login manager..."
-sudo systemctl enable sddm.service
+
 
 # Clone and install ame from AUR
 echo "[*] Installing ame from AUR..."
@@ -96,5 +94,9 @@ fi
 # Install SDDM theme
 echo "[*] Installing SDDM Astronaut theme..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+
+# Enable SDDM
+echo "[*] Enabling SDDM login manager..."
+sudo systemctl enable sddm.service
 
 echo "[✓] All setup completed successfully!"
