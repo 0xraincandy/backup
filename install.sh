@@ -16,28 +16,6 @@ fi
 mkdir -p "$HOME/.config"
 
 
-# Making vim the default text editor
-
-echo "[*] Adding vim as default text editor..."
-APP_DIR="$HOME/.local/share/applications"
-mkdir -p "$APP_DIR"
-
-cat > "$APP_DIR/vim.desktop" << 'EOF'
-[Desktop Entry]
-Name=Vim (Kitty)
-Comment=Edit text files in Vim inside Kitty terminal
-Exec=kitty -e vim %F
-Terminal=false
-Type=Application
-MimeType=text/plain;
-Categories=Utility;TextEditor;
-EOF
-
-update-desktop-database "$APP_DIR"
-xdg-mime default vim.desktop text/plain
-echo "[*] Vim set as default text editor."
-# -------------------------
-
 # List of config folders to symlink
 CONFIGS=("hypr" "kitty" "rofi" "waybar" "neofetch" "fastfetch")
 
