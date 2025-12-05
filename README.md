@@ -27,7 +27,3 @@ if rofi doesnt accept the theme, select the theme selector and select rounded-no
 
 
 
-to-do:
-- Dark Mode for policykit and xwaylandvideobridge
-- Better installation
-- 
