@@ -1,3 +1,5 @@
+# THE INSTALL SCRIPT DOESNT WORK ANYMORE (AMETHYST AUR HELPER IS BROKEN AT THE MOMENT)
+
 <img width="1920" height="1080" alt="afbeelding" src="https://github.com/user-attachments/assets/fa717683-0413-42b7-8f5a-3569f7f6ec6d" />
 
 To install the dotfiles use this:
