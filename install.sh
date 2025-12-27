@@ -35,12 +35,13 @@ done
 
 
 # Clone and install ame from AUR
-echo "[*] Installing ame from AUR..."
-git clone https://aur.archlinux.org/ame.git
-cd ame
-makepkg -si --noconfirm
+echo "[*] Installing ame from github..."
+git clone https://github.com/0xraincandy/amethyst
+cd amethyst
+cargo build --release
+sudo mv target/release/ame /usr/bin
 cd ..
-rm -rf ame
+rm -rf amethyst
 
 # Run ame to install fonts and neofetch
 echo "[*] Installing all-the-icons fonts, wlogout and neofetch..."
