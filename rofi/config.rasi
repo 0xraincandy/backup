@@ -1,0 +1,6 @@
+
+@theme "~/.config/rofi/themes/rounded-nord-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/android_notification.rasi"
+
+// @theme "/$HOME/.local/share/rofi/themes/rounded-nord-dark.rasi"
