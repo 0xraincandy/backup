@@ -1,14 +1,13 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 40,
+  "height": 44,
   "spacing": 2,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
   "modules-left": ["hyprland/workspaces",
-  "custom/apple",
   ],
   "modules-center": [],
   "modules-right": [
@@ -20,13 +19,6 @@
     "custom/spotify",
     "custom/power",
   ],
-"custom/apple": {
-  "format": "♫ {}",
-  "return-type": "json",
-  "exec": "~/scripts/apple_music_status.sh",
-  "on-click": "~/scripts/apple_music_toggle.sh",
-  "interval": 1
-},
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{id}",
@@ -37,9 +29,12 @@
   "hyprland/window": {
     "format": "{title}",
   },
-  "tray": {
-    "show-passive-items": true,
-    "spacing": 10,
+"tray": {
+	"icon-size": 21,
+	"spacing": 10,
+  "icons": {
+    "blueman": "bluetooth",
+  }
   },
   "clock#simpleclock": {
     "tooltip": false,
