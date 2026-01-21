@@ -1,8 +1,0 @@
-[General]
-font=Noto Sans,10,-1,5,50,0,0,0,0,0
-
-[Icons]
-Theme=Tela-dark
-
-[KDE]
-widgetStyle=qt6ct-style
