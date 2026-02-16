@@ -1,0 +1,10 @@
+NAME="Aqua Linux"
+PRETTY_NAME="Aqua Linux"
+ID=aqua
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://github.com/0xraincandy"
+DOCUMENTATION_URL="https://github.com/0xraincandy/aqua"
+SUPPORT_URL="https://github.com/0xraincandy/aqua"
+BUG_REPORT_URL="https://github.com/0xraincandy/aqua"
+PRIVACY_POLICY_URL="https://github.com/0xraincandy/aqua"
+LOGO=aqua-logo
