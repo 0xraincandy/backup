@@ -1,0 +1,42 @@
+#!/bin/bash
+# Function for grammatically correct pluralization
+pluralize() {
+local count=$1
+local singular=$2
+local plural=${3:-${singular}s}
+if [ "$count" -eq 1 ]; then
+echo "$count $singular"
+else
+echo "$count $plural"
+fi
+}
+# 1. Retrieve the birth time of the root filesystem.
+# stat -c %w / outputs the creation date of the '/' directory.
+# Example output: 2024-03-16 14:30:22.000000000 +0100
+INSTALL_DATE_FULL=$(stat -c %w /)
+# Important check: If %w is not supported (e.g., older kernels/FS),
+# stat returns the string "n/a". We check this before calculating.
+if [[ "$INSTALL_DATE_FULL" == "n/a" ]]; then
+echo "❌ ERROR: Birth time (%w) is not supported by the filesystem."
+echo "➡️ Please use the Pacman Log method as a fallback."
+exit 1
+fi
+# 2. Convert the full date string (including timestamp and timezone) to seconds since epoch.
+# GNU date is robust enough to handle the full stat output.
+INSTALL_DATE_SECONDS=$(date -d "$INSTALL_DATE_FULL" +%s)
+CURRENT_DATE_SECONDS=$(date +%s)
+# 3. Calculate the difference in days (86400 seconds per day).
+DAYS=$(( ($CURRENT_DATE_SECONDS - $INSTALL_DATE_SECONDS) / 86400 ))
+# 4. Clean output for Fastfetch
+if [ "$DAYS" -ge 365 ]; then
+YEARS=$(( DAYS / 365 ))
+EXTRA_DAYS=$(( DAYS % 365 ))
+# Build output string with proper pluralization
+OUTPUT="System installed for $(pluralize $YEARS year)"
+if [ "$EXTRA_DAYS" -gt 0 ]; then
+OUTPUT="$OUTPUT, $(pluralize $EXTRA_DAYS day)"
+fi
+echo "$OUTPUT."
+else
+echo "System installed for $(pluralize $DAYS day)."
+fi
